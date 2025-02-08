@@ -24,6 +24,7 @@ import {
   SheetFooter,
 } from "@/components/ui/sheet";
 import { CodeBlock } from "@/components/ui/code-block";
+import { Feature } from "@/components/ui/feature-with-image-comparison";
 
 export default function Home() {
   const code = `const DummyComponent = () => {
@@ -66,29 +67,11 @@ export default function Home() {
           <TabsContent value="UI" className="mt-8">
             <div className="grid grid-cols-2 gap-x-20">
               <div>
-                <div className="flex items-center justify-center rounded-full h-10 w-40 shadow-lg font-bold">
-                  Figma Design
+                <div className="flex items-center justify-center rounded-full h-10 w-52 shadow-lg font-bold">
+                  Figma / Implementation
                 </div>
                 <div className="bg-[#f8fafc] rounded-lg mt-4 flex items-center justify-center">
-                  <Image
-                    src="https://media.licdn.com/dms/image/v2/D4D12AQHA4SPDhRLMoA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1696403345515?e=2147483647&v=beta&t=iFMy2BTouIMesYEzfTerN5wqMN_1DrNV3pKGTQKbP40"
-                    alt="Image"
-                    width={600}
-                    height={400}
-                    className="rounded-lg"
-                  />
-                </div>
-                <div className="flex items-center justify-center rounded-full h-10 w-52 shadow-lg font-bold mt-6">
-                  Code Implementation
-                </div>
-                <div className="bg-[#f8fafc] rounded-lg mt-4 flex items-center justify-center">
-                  <Image
-                    src="https://media.licdn.com/dms/image/v2/D4D12AQHA4SPDhRLMoA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1696403345515?e=2147483647&v=beta&t=iFMy2BTouIMesYEzfTerN5wqMN_1DrNV3pKGTQKbP40"
-                    alt="Image"
-                    width={600}
-                    height={400}
-                    className="rounded-lg"
-                  />
+                  <Feature />
                 </div>
               </div>
               <div className="mr-4">
