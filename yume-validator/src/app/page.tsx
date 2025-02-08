@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { CircleCheck, CircleAlert, Info, CircleX } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -67,8 +66,8 @@ export default function Home() {
           <TabsContent value="UI" className="mt-8">
             <div className="grid grid-cols-2 gap-x-20">
               <div>
-                <div className="flex items-center justify-center rounded-full h-10 w-52 shadow-lg font-bold">
-                  Figma / Implementation
+                <div className="flex items-center justify-center rounded-full h-10 w-44 shadow-lg font-bold">
+                  Expected / Actual
                 </div>
                 <div className="bg-[#f8fafc] rounded-lg mt-4 flex items-center justify-center">
                   <Feature />
