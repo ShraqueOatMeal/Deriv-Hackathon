@@ -1,3 +1,5 @@
+"use client";
+import { useState, useEffect } from "react";
 import { CircleCheck, CircleAlert, Info, CircleX } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -24,8 +26,10 @@ import {
 } from "@/components/ui/sheet";
 import { CodeBlock } from "@/components/ui/code-block";
 import { Feature } from "@/components/ui/feature-with-image-comparison";
+import { Progress } from "@/components/ui/progress";
 
 export default function Home() {
+  const [progress, setProgress] = useState(75);
   const code = `const DummyComponent = () => {
   const [count, setCount] = React.useState(0);
 
@@ -74,6 +78,14 @@ export default function Home() {
                 </div>
               </div>
               <div className="mr-4">
+                <Card className="mb-8">
+                  <CardHeader>
+                    <CardTitle>Overall fidelity score</CardTitle>
+                    <div className="flex items-center gap-x-3">
+                      <Progress value={progress} /> {progress}%
+                    </div>
+                  </CardHeader>
+                </Card>
                 <Tabs defaultValue="working">
                   <TabsList className="grid grid-cols-3">
                     <TabsTrigger value="working">
