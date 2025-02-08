@@ -29,7 +29,19 @@ import { Feature } from "@/components/ui/feature-with-image-comparison";
 import { Progress } from "@/components/ui/progress";
 
 export default function Home() {
-  const [progress, setProgress] = useState(75);
+  const [progress, setProgress] = useState(0);
+  useEffect(() => {
+    let currentProgress = 0;
+    const increment = 75 / 60; // Smooth transition over ~3 seconds (60 steps)
+
+    const interval = setInterval(() => {
+      currentProgress += increment;
+      setProgress(Math.min(currentProgress, 75)); // Stop at 75
+      if (currentProgress >= 75) clearInterval(interval);
+    }, 30);
+
+    return () => clearInterval(interval);
+  }, []);
   const code = `const DummyComponent = () => {
   const [count, setCount] = React.useState(0);
 
@@ -82,7 +94,11 @@ export default function Home() {
                   <CardHeader>
                     <CardTitle>Overall fidelity score</CardTitle>
                     <div className="flex items-center gap-x-3">
-                      <Progress value={progress} /> {progress}%
+                      <Progress
+                        value={progress}
+                        className="transition-all ease-in-out"
+                      />{" "}
+                      {Math.round(progress)}%
                     </div>
                   </CardHeader>
                 </Card>
